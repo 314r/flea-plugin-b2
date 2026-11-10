@@ -1,0 +1,3 @@
+# A dot folder: `flea plugin add` skips dot entries, so build output never lands in the installed plugin.
+[build]
+target-dir = ".target"

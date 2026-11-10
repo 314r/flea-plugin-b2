@@ -1,0 +1,39 @@
+[workspace]
+# The plugin (this package) and the graphical bucket manager, which reuses its library.
+members = [".", "manager"]
+resolver = "2"
+
+[package]
+name = "flea-b2"
+version = "0.3.0"
+edition = "2021"
+rust-version = "1.98"
+license = "MIT"
+publish = false
+description = "Backblaze B2 place plugin for the Flea file manager"
+
+[dependencies]
+base64 = "0.22"
+libc = "0.2"
+percent-encoding = "2"
+ring = "0.17"
+rustls = { version = "0.23", default-features = false, features = ["ring", "std", "tls12", "logging"] }
+rustls-native-certs = "0.8"
+serde_json = "1"
+ureq = { version = "2.12", default-features = false, features = ["tls"] }
+zbus = { version = "5", default-features = false, features = ["async-io", "blocking-api"] }
+
+[features]
+# Environment hooks used only by the black-box tests: fake API URL, credentials, notifications and timings.
+# The shipped binary is built without them.
+test-hooks = []
+
+[profile.release]
+lto = true
+codegen-units = 1
+strip = true
+
+# gpui-pre-macros leaves a helper ungated in release builds while its module is gated on
+# debug_assertions; gpui-omarchy sets the same. Profiles only apply from the workspace root.
+[profile.release.package.gpui-pre-macros]
+debug-assertions = true

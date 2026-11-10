@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "id": "b2.bucket",
+  "name": "Backblaze B2",
+  "version": "0.3.0",
+  "author": "flea-plugin-b2 authors",
+  "license": "MIT",
+  "description": "Your Backblaze B2 buckets in the sidebar: browse, copy files in and out, rename and delete. Add and manage buckets with the Manage buckets… row.",
+  "kinds": ["place", "rail-section"],
+  "place": {"label": "All buckets", "glyph": "cloud", "path": ""},
+  "railSection": {"title": "Backblaze B2", "refreshSec": 10},
+  "entryPoints": {"run": "bin/flea-b2"},
+  "access": ["network", "selection", "write:selection", "notify", "keyring", "exec:systemd-run"]
+}

@@ -1,0 +1,21 @@
+[package]
+name = "flea-b2-manager"
+version = "0.3.0"
+edition = "2024"
+rust-version = "1.98"
+license = "MIT"
+publish = false
+description = "The Backblaze B2 bucket manager for the Flea plugin, in a window"
+
+[dependencies]
+flea-b2 = { path = ".." }
+# gpui-omarchy is pinned to a commit built on gpui-kit 0.9; the two must share a minor.
+gpui-kit = { version = "0.9.0", default-features = false, features = ["assets"] }
+gpui-omarchy = { git = "https://github.com/huacnlee/gpui-omarchy", rev = "8c3fbcfc32ad47943c4a1cacf57c7ff8e9f22b42" }
+async-channel = "2"
+libc = "0.2"
+notify = "7"
+toml = "0.8"
+
+[dev-dependencies]
+tempfile = "3"

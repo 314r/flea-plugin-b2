@@ -1,0 +1,22 @@
+# The licenses the shipped binaries may contain. tools/third-party-licenses reads this list
+# (`cargo deny check licenses` does too, when cargo-deny is installed). Where a crate offers a
+# choice, MIT is picked, then Apache-2.0. MPL-2.0 is file-level copyleft: the source of each such
+# crate is linked from THIRD-PARTY-LICENSES.txt.
+[licenses]
+allow = [
+    "MIT",
+    "Apache-2.0",
+    "Apache-2.0 WITH LLVM-exception",
+    "BSD-2-Clause",
+    "BSD-3-Clause",
+    "0BSD",
+    "ISC",
+    "Zlib",
+    "BSL-1.0",
+    "Unlicense",
+    "CC0-1.0",
+    "Unicode-3.0",
+    "CDLA-Permissive-2.0",
+    "MPL-2.0",
+]
+confidence-threshold = 0.95
